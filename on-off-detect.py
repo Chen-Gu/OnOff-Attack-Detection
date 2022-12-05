@@ -43,7 +43,7 @@ def ReadTxt():
             break
         line = f.readline()
     f.close()
-    return timestamp, trust
+    return timestamp, trust, listhead, listrear
 
 def get_all_function():
     print(contract.all_functions())
@@ -54,7 +54,7 @@ def AttackJudge(df):
     return contract.functions.judge(df).call()
 
 if __name__ == "__main__":
-    timestamp, trust = ReadTxt()
+    timestamp, trust, ta, tb = ReadTxt()
     x = np.array(timestamp)
     y = np.array(trust)
 
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     z = np.polyfit(x, y, 3)
     m = symbols('m')
     f = z[0]*m**3 + z[1]*m**2 + z[2]*m + z[3]
-    num = integrate(f, (m, 1, 3))
+    num = integrate(f, (m, ta, tb)) / (tb - ta)
     print(int(num*1000))
     flag = AttackJudge(int(num*1000))
 
@@ -70,6 +70,3 @@ if __name__ == "__main__":
         print("No detection of the on-off attack.")
     else:
         print("Detection of the on-off attack.")
-
-
-
