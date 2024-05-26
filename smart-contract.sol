@@ -1,23 +1,24 @@
-pragma solidity ^0.4.0;
+// SPDX-License-Identifier: SimPL-2.0
+pragma solidity ^0.8.24;
 
-contract onoffdetect{
-    uint256 thr = 0.8*1000;
-    uint256 timeslice = 30; //time :s
+contract OnOffDetect {
+    uint256 private constant THR = 0.8 * 1000; // 0.8 * 1000
+    uint256 private constant TIMESLICE = 30; // time in seconds
+    bool private timeIntervalResult;
+    bool private onOffAttackResult;
 
-    function time(uint256 ta, uint256 tb) public view returns(bool){ //时间片
-        uint256 t;
-        t = tb - ta;
-        if (t >= timeslice){
+    function isTimeInterval(uint256 ta, uint256 tb) public pure returns (bool) {
+        uint256 t = tb - ta;
+        if (t >= TIMESLICE){
             return true;
-        }
-            
+        } 
         else{
             return false;
         }
     }
 
-    function judge(uint256 df) public view returns(bool) { //积分判断
-        if (df > thr){
+    function isOnOffAttack(uint256 df) public pure returns (bool) {
+         if (df > THR){
             return true;
         }
             
@@ -25,6 +26,22 @@ contract onoffdetect{
             return false;
         }
            
+    }
+    
+    function setTimeResult(uint256 ta, uint256 tb) public {//set
+        timeIntervalResult = isTimeInterval(ta, tb);
+    }
+
+    function setOnOffAttackResult(uint256 df) public {
+        onOffAttackResult = isOnOffAttack(df);
+    }
+
+    function getTimeResult() public view returns (bool) {//get
+        return timeIntervalResult;
+    }
+
+    function getOnOffAttackResult() public view returns (bool) {
+        return onOffAttackResult;
     }
 
 }

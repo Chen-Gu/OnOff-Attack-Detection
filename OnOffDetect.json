@@ -1,0 +1,146 @@
+{
+	"compiler": {
+		"version": "0.8.24+commit.e11b9ed9"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getOnOffAttackResult",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTimeResult",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "df",
+						"type": "uint256"
+					}
+				],
+				"name": "isOnOffAttack",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ta",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tb",
+						"type": "uint256"
+					}
+				],
+				"name": "isTimeInterval",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "df",
+						"type": "uint256"
+					}
+				],
+				"name": "setOnOffAttackResult",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ta",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tb",
+						"type": "uint256"
+					}
+				],
+				"name": "setTimeResult",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/On-Off.sol": "OnOffDetect"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tests/On-Off.sol": {
+			"keccak256": "0x98691b5b11f436e98e58e66a18c92ea922a1f0fb4c7a0445bd2a8568ae0fbbb4",
+			"license": "SimPL-2.0",
+			"urls": [
+				"bzz-raw://667541592afc5000d8acb2cfacab9b04c7ceede47884ab0b9783baee548a21f9",
+				"dweb:/ipfs/QmXXcD9K1JBMyvyFJqDWagudvnKKuzRcRtTJyWjXNvosMX"
+			]
+		}
+	},
+	"version": 1
+}
