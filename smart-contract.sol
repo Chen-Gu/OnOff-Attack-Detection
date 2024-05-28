@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 contract OnOffDetect {
-    uint256 private constant THR = 0.8 * 1000; // 0.8 * 1000
+    uint256 private constant THR = 0.8 * 1000; // threshold
     uint256 private constant TIMESLICE = 30; // time in seconds
     bool private timeIntervalResult;
     bool private onOffAttackResult;
@@ -20,12 +20,10 @@ contract OnOffDetect {
     function isOnOffAttack(uint256 df) public pure returns (bool) {
          if (df > THR){
             return true;
-        }
-            
+        }           
         else{
             return false;
-        }
-           
+        }          
     }
     
     function setTimeResult(uint256 ta, uint256 tb) public {//set
@@ -43,5 +41,4 @@ contract OnOffDetect {
     function getOnOffAttackResult() public view returns (bool) {
         return onOffAttackResult;
     }
-
 }

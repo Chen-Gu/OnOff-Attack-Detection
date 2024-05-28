@@ -112,6 +112,7 @@ abi = [
 		"type": "function"
 	}
 ]
+# Connect to the local geth
 w3 = Web3(HTTPProvider("http://localhost:8545"))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 acc = w3.eth.accounts[0]
@@ -123,7 +124,7 @@ contract = w3.eth.contract(address, abi=abi)
 time_results = []
 judge_results = []
 
-def isTimeInterval(ta, tb):  # Determine the right time interval 
+def isTimeInterval(ta, tb):  # Determine the right time interval and send results to the blockchian
     tx_hash = contract.functions.isTimeInterval(ta, tb).transact()
     w3.eth.waitForTransactionReceipt(tx_hash)
     contract.functions.setTimeResult(ta, tb).transact()
@@ -159,7 +160,7 @@ def readtxt():
 def get_all_function():
     print(contract.all_functions())
 
-def isOnOffAttack(df):  # Determine the on-off attack 
+def isOnOffAttack(df):  # Determine the on-off attack and send results to the blockchian
     tx_hash = contract.functions.isOnOffAttack(df).transact()
     w3.eth.waitForTransactionReceipt(tx_hash)
     contract.functions.setOnOffAttackResult(df).transact()
