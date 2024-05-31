@@ -4,4 +4,4 @@ The script is used to detect the on-off attack for the trust system. It has been
 
 isTimeInterval: Check whether a specific time period is longer than the time period of (tb-ta).
 
-isOnOffAttack: Check whether the on-off attack occurs when the variable df is large than a threshold.
+isOnOffAttack: Check whether the on-off attack occurs when variable df is larger than a threshold.
